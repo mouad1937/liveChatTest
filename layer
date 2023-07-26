@@ -24,5 +24,9 @@ COPY / /root
 RUN REPEATABLE docker-compose build --parallel
 RUN docker-compose up -d
 
+RUN REPEATABLE docker-compose up -d --build --force-recreate --remove-orphans && sleep 6
+
+
 # TODO: change port to whatever is configured in your docker-compose.yml
 EXPOSE WEBSITE localhost:8000
+
